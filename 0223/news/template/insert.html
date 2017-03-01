@@ -1,0 +1,22 @@
+<div class="weui-cells__title"><b>新闻标题</b></div>
+<div class="weui-cells">
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <input ng-model='title' class="weui-input" type="text" placeholder="请输入新闻标题"/>
+        </div>
+    </div>
+</div>
+
+<div class="weui-cells__title"><b>新闻内容</b></div>
+<div class="weui-cells weui-cells_form">
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <textarea ng-model='text' class="weui-textarea" placeholder="请输入新闻内容" rows="3"></textarea>
+            <div class="weui-textarea-counter"><span>0</span>/200</div>
+        </div>
+    </div>
+</div>
+
+<div class="weui-btn-area">
+    <a ng-click='insertNews()' class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">添加新闻</a>
+</div>

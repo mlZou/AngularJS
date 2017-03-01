@@ -1,1 +1,32 @@
- 
+<h1>登录页面</h1>
+<br>
+<h4>用户名</h4>
+<div class="weui-cells">
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <input ng-model='username' class="weui-input" type="text" placeholder="请输入用户名"/>
+        </div>
+    </div>
+</div>
+<br>
+<h4>密码</h4>
+<div class="weui-cells">
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <input ng-model='password' class="weui-input" type="password" placeholder="请输入密码"/>
+        </div>
+    </div>
+</div>
+<br>
+<div class="weui-btn-area">
+    <a ng-click='goIndex()' class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">登录</a>
+</div>
+<div class="weui-btn-area">
+    <a href="#/register" class="weui-btn weui-btn_plain-default">去到注册</a>
+</div>
+
+<style>
+	h4{
+		margin-left: 20px;
+	}
+</style>
