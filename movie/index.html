@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='ionicApp'>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ionic测试</title>
+	<link rel="stylesheet" href="css/ionic.css">
+</head>
+<!-- <script src='js/angular.js'></script>
+<script src="js/angular-ui-router.js"></script> -->
+<script src='js/ionic.bundle.js'></script>
+<script>
+	var app = angular.module('ionicApp',['controllers','routers','directives']);
+
+	//控制器
+	var controllers = angular.module('controllers',[]);
+	controllers.controller('indexCtrl',['$scope',function($scope){
+		
+	}]).controller('showCtrl',['$scope',function($scope){
+		$scope.city='广州';
+	}])
+
+	//路由
+	var routers = angular.module('routers',['ui.router']);
+	routers.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
+		/*第一层路由*/
+		$stateProvider.state('index',{
+			url:'/index',
+			templateUrl:'template/index.html',
+			controller:'indexCtrl'
+		}).state('register',{
+			url:'/register',
+			templateUrl:'template/register.html'
+		}).state('login',{
+			url:'/login',
+			templateUrl:'template/login.html'
+		}).state('detail',{
+			url:'/detail',
+			templateUrl:'template/detail.html'
+		}).state('/reviews',{
+			url:'/reviews',
+			templateUrl:'template/reviews.html'
+		});
+		/*第二层路由*/
+
+		//主页路由(index)
+		$stateProvider.state('index.show',{
+			url:'/show',
+			templateUrl:'template-sub/show.html',
+			controller:'showCtrl'
+		}).state('index.cinema',{
+			url:'/cinema',
+			templateUrl:'template-sub/cinema.html'
+		}).state('index.self',{
+			url:'/self',
+			templateUrl:'template-sub/self.html'
+		});
+
+		//详情路由(detail)
+
+		$stateProvider.state('detail.introduce',{
+			url:'introduce',
+			templateUrl:'template-sub/introduce.html'
+		}).state('detail.picture',{
+			url:'picture',
+			templateUrl:'template-sub/picture.html'
+		}).state('short_reviews',{
+			url:'short_reviews',
+			templateUrl:'template-sub/short_reviews.html'
+		}).state('movie_reviews',{
+			url:'movie_reviews',
+			templateUrl:'template-sub/move_reviews.html'
+		});
+
+		//默认去到index.html下的index下的show
+		$urlRouterProvider.when('', '/index/show')
+	}])
+
+	//模块
+	var directives = angular.module('directives',[]);
+	directives.directive('mheader',function(){
+		return {
+			templateUrl:'directive/mheader.html'
+		}	
+	})
+</script>
+<body>
+	<!-- <p>{{name}}</p> -->
+	<div ui-view=''></div>
+</body>
+</html>
